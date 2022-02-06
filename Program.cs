@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 
 namespace fundamentals1
 {
@@ -6,22 +6,44 @@ namespace fundamentals1
     {
         static void Main(string[] args)
         {
-            for (int i= 1; i <= 255; i++)
-            Console.WriteLine(i);
-            
-            for(int x = 1; x <= 100; x++)
-                if(x % 3 == 0 || x % 5 == 0)
-            Console.WriteLine(x);
-            
-            for(int y = 1; y <= 100; y++)
-            if(y % 3 == 0 && y % 5 == 0)
-            Console.WriteLine("Fizz Buzz");
-            else if(y % 3 == 0)
-            Console.WriteLine("Fizz");
-            else if(y % 5 == 0)
-            Console.WriteLine("Buzz");
-            else
-            Console.WriteLine(y);
+            // Create a Loop that prints all values from 1-255
+            for(var value = 0; value <= 255; value++)
+            {
+                Console.WriteLine(value);
+            }
+
+            // Create a new loop that prints all values from 1-100 that are divisible by 3 or 5, but not both
+            for(var value = 1; value <= 100; value++)
+            {
+                bool byThreeOrFive = (value % 3 == 0 || value % 5 == 0);
+                bool notThreeAndFive = !(value % 3 == 0 && value % 5 == 0);
+
+                if(byThreeOrFive && notThreeAndFive)
+                {
+                    Console.WriteLine(value);
+                }
+            }
+
+            // Modify the previous loop to print "Fizz" for multiples of 3, "Buzz" for multiples of 5, and "FizzBuzz" for numbers that are multiples of both 3 and 5
+            for(var value = 1; value <= 100; value++)
+            {
+                bool byThree = (value % 3 == 0);
+                bool byFive =  (value % 5 == 0);
+                bool byThreeAndFive = (value % 3 == 0 && value % 5 == 0);
+
+                if(byThreeAndFive)
+                {
+                    Console.WriteLine($"Fizz Buzz (value:{value})");
+                }
+                else if(byThree)
+                {
+                    Console.WriteLine($"Fizz (value:{value})");
+                }
+                else if(byFive)
+                {
+                    Console.WriteLine($"Buzz (value:{value})");
+                }
+            }
         }
     }
 }
